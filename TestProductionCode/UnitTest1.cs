@@ -20,7 +20,7 @@ namespace TestProductionCode
 
             Functions mService = new Functions(m.Object);
 
-            int actualResult = mService.GetNumberOfReviewsFromReviewer(1);
+            int actualResult = mService.GetNumberOfReviewsFromReviewer(2);
 
             m.Verify(m => m.GetAll(), Times.Once);
 
