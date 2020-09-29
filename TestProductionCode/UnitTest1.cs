@@ -26,5 +26,26 @@ namespace TestProductionCode
 
             Assert.IsTrue(actualResult == 1);
         }
+
+        [TestMethod]
+        public void TestMethod2()
+        {
+            Mock<IMovieRepository> m = new Mock<IMovieRepository>();
+
+            BERating[] returnValue = { new BERating { Reviewer = 1, Movie = 2, Grade = 3 },
+                                       new BERating { Reviewer = 1, Movie = 5, Grade = 4 },
+                                       new BERating { Reviewer = 2, Movie = 5, Grade = 4 }
+            };
+
+            m.Setup(m => m.GetAll()).Returns(() => returnValue);
+
+            Functions mService = new Functions(m.Object);
+
+            double actualResult = mService.GetAverageRateFromReviewer(1);
+
+            //m.Verify(m => m.GetAll(), Times.Once);
+
+            Assert.IsTrue(actualResult == 3.5);
+        }
     }
 }
