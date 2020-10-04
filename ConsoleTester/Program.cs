@@ -13,7 +13,7 @@ namespace ConsoleTester
             for (int i = 0; i < 10; i++)
             {
                 BERating c = ratings[i];
-                Console.WriteLine("Reviewer = " + c.Reviewer);
+                Console.WriteLine("Reviewer = " + c.Reviewer + " date = " + c.Date);
             }
         }
     }
