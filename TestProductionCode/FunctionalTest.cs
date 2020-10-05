@@ -6,7 +6,7 @@ using ProductionCode;
 namespace TestProductionCode
 {
     [TestClass]
-    public class UnitTest1
+    public class FunctionalTest
     {
         [TestMethod]
         public void TestMethod1()
