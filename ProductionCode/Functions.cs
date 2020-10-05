@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ProductionCode
@@ -25,6 +26,28 @@ namespace ProductionCode
                     select r.Grade);
 
             return s.Average(r => r);
+        }
+
+        public List<BEReviewer> GetReviewers()
+        {
+            Dictionary<int, BEReviewer> mReviewers = new Dictionary<int, BEReviewer>();
+            foreach (BERating r in mRep.GetAll())
+            {
+                int id = r.Reviewer;
+                if (mReviewers.ContainsKey(id) == false)
+                {
+                    BEReviewer rev = new BEReviewer();
+                    rev.Id = id;
+                    rev.mRatings = new List<BERating>();
+                    rev.mRatings.Add(r);
+                    mReviewers.Add(id, rev);
+                }
+                else
+                    mReviewers[id].mRatings.Add(r);
+            }
+            
+            return mReviewers.Values.ToList();
+
         }
     }
 }
