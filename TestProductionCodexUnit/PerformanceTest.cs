@@ -15,6 +15,7 @@ namespace TestProductionCodexUnit
 
         }
 
+       
         [Fact]
         public void Test1()
         {
@@ -27,7 +28,32 @@ namespace TestProductionCodexUnit
 
         }
 
-       
+        private void CheckPerformance(Action a, int ms)
+        {
+            DateTime start = DateTime.Now;
+            a.Invoke();
+            DateTime end = DateTime.Now;
+            double time = (end - start).TotalMilliseconds;
+            Assert.True(time <= ms);
+
+        }
+
+        [Fact]
+        public void Test2()
+        {
+            Functions f = new Functions(mRep);
+            CheckPerformance(() => f.GetNumberOfReviewsFromReviewer(1), 4000);
+
+        }
+
+        [Fact]
+        public void Test3()
+        {
+            Functions f = new Functions(mRep);
+            CheckPerformance(() => f.GetAverageRateFromReviewer(1), 4000);
+
+        }
+
     }
 
     
