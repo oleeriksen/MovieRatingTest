@@ -11,6 +11,7 @@ namespace TestProductionCodexUnit
 
         public PerformanceTest()
         {
+           
             mRep = new MovieRepositoryFileReader();
 
         }

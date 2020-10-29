@@ -7,7 +7,7 @@ namespace ProductionCode
 {
     public class MovieRepositoryFileReader : IMovieRepository
     {
-        private readonly string _path = "ratings.json";
+        private readonly string _path = "../../../../ratings.json";
 
         public MovieRepositoryFileReader()
         {
