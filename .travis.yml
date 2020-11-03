@@ -6,3 +6,4 @@ script:
  - dotnet restore
  - dotnet build
  - dotnet test TestProductionCode/TestProductionCode.csproj
+ - dotnet test TestProductionCodexUnit/TestProductionCodexUnit.csproj
